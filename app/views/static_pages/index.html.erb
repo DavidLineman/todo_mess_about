@@ -3,7 +3,19 @@
     <h1>todos</h1>
   </header>
 
-  <section>
-  
+  <section class="main">
+    <ul class="todo=list">
+
+    </ul>
   </section>
 </section>
+
+
+<script>
+  $(function() {
+    $.ajax( {url:"/tasks", success: function( data ) {
+      console.log(data);
+    }});
+  });
+
+</script>
