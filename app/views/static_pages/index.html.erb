@@ -16,19 +16,10 @@
 
 <script>
   $(function() {
-    $('#new-form').submit(function(event) {
-      event.preventDefault();
-      var textbox = $('.new-todo')
-      var payload = {
-        task: {
-          title: textbox.val()
-        }
-      };
+ 
 
-      $.post("/tasks", payload).done(function(data) {
-        console.log("Success!!!");
-      })
-    });
+
+
     // The taskHtml method takes in a JS representation of the task and produces an HTML representation using <li> tags
 
       function taskHtml(task) {
@@ -77,6 +68,25 @@
       
 
       }});
+
+      $('#new-form').submit(function(event) {
+        event.preventDefault();
+        var textbox = $('.new-todo')
+        var payload = {
+          task: {
+            title: textbox.val()
+          }
+      };
+
+      $.post("/tasks", payload).done(function(data) {
+        var htmlString = taskHtml(data);
+        var ulTodos = $('.todo-list');
+        ulTodos.append(htmlString);
+        $('.toggle').click(toggleTask);
+      });
+    });
+
+
   });
 
 </script>
