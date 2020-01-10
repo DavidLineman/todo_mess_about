@@ -25,13 +25,10 @@
         }
       };
 
-      $.post("/tasks", payload, { 
-        success: function(data) {
-        console.log(data);
-        }
-      });
+      $.post("/tasks", payload).done(function(data) {
+        console.log("Success!!!");
+      })
     });
-
     // The taskHtml method takes in a JS representation of the task and produces an HTML representation using <li> tags
 
       function taskHtml(task) {
