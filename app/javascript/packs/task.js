@@ -7,7 +7,9 @@ $(function () {
 
   function taskHtml(task) {
     var checkedStatus = task.done ? "checked" : "";
-    var liElement = '<li><div class="view"><input class="toggle" type="checkbox"' +
+    var liClass = task.done ? "completed" : "";
+    var liElement = '<li class="' + liClass + '">' +
+    '<div class="view"><input class="toggle" type="checkbox"' +
       " data-id='" + task.id + "'" +
       checkedStatus +
       '><label>' +
